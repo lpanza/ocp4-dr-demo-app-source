@@ -8,8 +8,9 @@ USER 0
 ADD https://wordpress.org/wordpress-${WORDPRESS_VERSION}.tar.gz .
 
 # Untar
+    #mv wordpress/* /tmp/src/ && \
 RUN tar zxf wordpress-${WORDPRESS_VERSION}.tar.gz && \
-    mv wordpress/* /tmp/src/ && \
+    mv wordpress/ /tmp/src/ && \
     chown 1001:0 -R /tmp/src && \
     rmdir wordpress && \
     rm -f wordpress-${WORDPRESS_VERSION}
