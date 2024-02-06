@@ -9,11 +9,13 @@ ADD https://wordpress.org/wordpress-${WORDPRESS_VERSION}.tar.gz .
 
 # Untar
 RUN tar zxf wordpress-${WORDPRESS_VERSION}.tar.gz && \
-    mv wordpress/* . && \
+    mv wordpress/* /tmp/src/ && \
+    chown 1001:0 -R /tmp/src && \
     rmdir wordpress && \
     rm -f wordpress-${WORDPRESS_VERSION}
 
-    #chown 1000720000:root -R wordpress && \
-#USER 1000720000
+USER 1001
+
+RUN /usr/libexec/s2i/assemble
 
 CMD ["/usr/libexec/s2i/run"]
