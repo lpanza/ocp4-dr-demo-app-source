@@ -4,6 +4,8 @@ ENV WORDPRESS_VERSION="6.4.3"
 
 USER 0
 
+VOLUME /opt/app-root/src
+
 # Add wordpress
 ADD https://wordpress.org/wordpress-${WORDPRESS_VERSION}.tar.gz .
 
@@ -13,7 +15,7 @@ ADD https://wordpress.org/wordpress-${WORDPRESS_VERSION}.tar.gz .
 RUN tar zxf wordpress-${WORDPRESS_VERSION}.tar.gz && \
     mv wordpress/ /tmp/src/ && \
     chown 1001:0 -R /tmp/src && \
-    rm -f wordpress-${WORDPRESS_VERSION}
+    rm -f wordpress-${WORDPRESS_VERSION}.tar.gz
 
 USER 1001
 
