@@ -2,7 +2,7 @@ FROM registry.access.redhat.com/ubi9/php-81@sha256:965ff8084c1bee1f264f708d06023
 
 ENV WORDPRESS_VERSION="6.4.3"
 
-#USER 0
+USER 0
 
 # Add wordpress
 ADD https://wordpress.org/wordpress-${WORDPRESS_VERSION}.tar.gz .
