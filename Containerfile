@@ -19,6 +19,6 @@ RUN tar zxf wordpress-${WORDPRESS_VERSION}.tar.gz && \
 
 USER 1001
 
-RUN /usr/libexec/s2i/assemble
+COPY entrypoint.sh /tmp/
 
-CMD ["/usr/libexec/s2i/run"]
+CMD ["/tmp/entrypoint.sh"]
