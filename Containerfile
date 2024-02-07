@@ -10,7 +10,6 @@ VOLUME /opt/app-root/src
 ADD https://wordpress.org/wordpress-${WORDPRESS_VERSION}.tar.gz .
 
 # Untar
-    #mv wordpress/* /tmp/src/ && \
     #rmdir wordpress && \
 RUN tar zxf wordpress-${WORDPRESS_VERSION}.tar.gz && \
     mv wordpress/ /tmp/src/ && \
